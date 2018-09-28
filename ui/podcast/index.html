@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Podcast</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+
+        <!-- Dependencias -->
+        <link rel="stylesheet" href="../css/owl.carousel.min.css">
+        <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="../js/jBox-0.4.9/Source/jBox.css">
+        <link rel="stylesheet" href="../js/jBox-0.4.9/Source/plugins/Image/jBox.Image.css">
+
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/animate.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/footer.css">
+
+        <link rel="stylesheet" href="../css/responsive.css">
+
+        <link rel="stylesheet" href="../js/alertify/alertify.core.css" />
+		<link rel="stylesheet" href="../js/alertify/alertify.bootstrap.css" />
+		<link rel="stylesheet" href="../js/alertify/alertify.default.css" />
+    </head>
+    <body>
+        <!-- <div id="preloader">
+    		<div class="book">
+    		  <div class="book__page"></div>
+    		  <div class="book__page"></div>
+    		  <div class="book__page"></div>
+    		</div>
+        </div> -->
+        <!-- Menu -->
+        <div id="modalPost" class="modal fade" data-backdrop="static" role="dialog">
+            <div class="modal-dialog modal-lg">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Add a new Podcast <span id="fileName"></span></h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class=row style="margin-bottom:10px">
+                                <div class="col-md-4 col-sm-6 col-xs-12">
+                                    <button class="btn btn-primary" id="btnUploadFile"><i class="fa fa-volume-up"></i> Select a File</button>
+                                    <input type="file" style="display:none" id="uploadFile">
+                                </div>
+                                <div class="col-md-8 col-sm-6 col-xs-12" id="fileNamePlay" align="center" style="padding-top: 8px">
+                                    <!-- Audio -->
+                                </div>
+                            </div>
+                            <hr>  
+                            <div class=row>
+                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                    <h6 style="margin-bottom:10px">Description</h6>
+                                    <textarea class="form-control" style="margin-bottom:5px" id="descPodcast" rows="5"></textarea>
+                                </div>
+                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                    <h6 style="margin-bottom:10px">Theme</h6>
+                                    <input type="text" style="margin-bottom:5px" class="form-control" id="themePodcast">
+                                    <h6 style="margin-bottom:10px">Tags</h6>
+                                    <input type="text" class="form-control" id="tagsPodcast">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="col-md-8 col-sm-12 col-xs-12">
+                                <div class="progress" style="height: 8px;">
+                                    <div class="progress-bar progress-bar-success" style="transition: width .1s" id="progressUploadPodcastD" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <span style="position:absolute; font-size:10px; left:13px ; bottom: 0px" id="UploadInfoBar"><i class="fa fa-upload"></i> </span>
+                                </div>     
+                            </div>
+                            <div class="col-md-4 col-sm-12 col-xs-12" align="right">
+                                <button type="button" class="btn btn-primary" id="newPodcast"><i class="fa fa-upload"></i> Upload</button>
+                                <button type="button" class="btn btn-default" id="cancelPodcast"><i class="fa fa-times"></i> Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        <div class="navbar-default animated navbar-fixed-top" id="navigation">
+            <div class="">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#hero-area">
+                        <img class="logo-1" src="../img/podcast.jpg" height="auto" width="40px" alt="Logo">
+                        <img class="logo-2" src="../img/podcast.jpg" height="auto" width="40px" alt="Logo">
+                    </a>
+                </div>
+            </div>
+            <nav class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-right" id="top-nav">
+                    <!-- <li class="current"><a href="#">Buscar</a></li> -->
+                    <li><a href="#" style="color:#FFF !important"><i class="fa fa-microphone"></i> Rec</a></li>
+                    <li><a href="#" style="color:#FFF !important"><i class="fa fa-search"></i> Search</a></li>
+                    <li><a href="#" style="color:#FFF !important" id="uploadPost"><i class="fa fa-upload"></i> Upload</a></li>
+                    <li><a href="#" style="color:#FFF !important"><i class="fa fa-sign-in"></i> Login</a></li>
+                    <li><a href="#" style="color:#FFF !important"><i class="fa fa-plus-square"></i> Sign up</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Contenido -->
+        <div style="margin-top: 80px;">
+            <div class="col-md-9 col-sm-8 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h4><strong id="titleIndpost"></strong></h4>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="x_panel">
+                    <div class="x_content">
+                        <div class="col-md-2 col-sm-6 col-xs-12">
+                            <img src="../img/podcast.jpg" style="max-width:100px" class="img img-responsive" alt="Perfil">
+                        </div>
+                        <div class="col-md-10 col-sm-6 col-xs-12">
+                            <h3 id="podcastTitle">Podcast Title</h3>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <span title="Publication date" id="podcastDate"><i class="fa fa-upload"></i> 00/00/0000</span><span> | </span>
+                                <span title="Reproductions"><i class="fa fa-volume-up"></i> 1000</span><span> | </span>
+                                <span title="Likes"><i class="fa fa-thumbs-up"></i> 34</span><span> | </span>
+                                <span title="Comments"><i class="fa fa-comments"></i> 10</span> <span> | </span>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="progress" id="progressAudio" style="cursor:pointer" onmousemove="verTime(this)">
+                                    <div class="progress-bar" id="progressAudioPodcast" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>
+                                    <span style="position:absolute; font-size:10px; left:13px ; bottom: 0px" id="timeCurrent">00:0</span>
+                                    <span style="position:absolute; font-size:10px; right:13px ; bottom: 0px" id="timePodcast"></span>
+                                </div>
+                            </div>
+                            <div id="podcastTheme">Podcast theme</div>
+                            <audio id="playPodcast"></audio>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary" onclick="document.getElementById('playPodcast').play()" id="podcastPlay"><i class="fa fa-play"></i></button>
+                                <!-- <button type="button" class="btn btn-primary" onclick="document.getElementById('playPodcast').stop()"><i class="fa fa-stop"></i></button> -->
+                                <button type="button" class="btn btn-primary" onclick="document.getElementById('playPodcast').pause()" id="podcastPause"><i class="fa fa-pause"></i></button>
+                                <button type="button" class="btn btn-primary" onclick="document.getElementById('playPodcast').volume-=0.1"><i class="fa fa-volume-down"></i></button>
+                                <button type="button" class="btn btn-primary" onclick="document.getElementById('playPodcast').volume+=0.1"><i class="fa fa-volume-up"></i></button>
+                            </div>
+                            <div class="btn-group">
+                                <button class="btn btn-primary"><i class="fa fa-check-circle"></i> Subscribe</button>
+                                <button class="btn btn-primary"><i class="fa fa-thumbs-up"></i> Like</button>
+                                <button class="btn btn-primary" id="podcastDownload"><i class="fa fa-download"></i> Download</button>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-2 col-xs-12" style="margin-top:10px" id="progressBDownload">
+                            <div class="progress" id="progressDownload" style="height: 8px;">
+                                <div class="progress-bar progress-bar-success" style="transition: width .1s" id="progressAudioPodcastD" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                <span style="position:absolute; font-size:10px; left:13px ; bottom: 0px" id="downloadInfoBar"><i class="fa fa-download"></i> </span>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="x_panel">
+                    <div class="x_content">
+                        <h3 style="padding-bottom:15px"><strong id="podcastDesc">Podcast description</strong></h3>
+                        <p align="justify" id="podcastContent"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_content">
+                        <input maxlength="30" type="text" class="form-control has-feedback-right" id="search_global" placeholder="Search">
+                        <span style="padding-top: 1px;height: 25px;margin-top: 8px;" class="fa fa-search form-control-feedback right" aria-hidden="true" id="search_global_icon"></span>
+                    </div>
+                </div>
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h5 align="center"><strong id="title_allpost">Categories</strong></h5>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="panel-group" id="categoriasPodcast">
+                        <!-- Categorías -->
+                    </div>
+                </div>
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h5 align="center"><strong id="title_recentspost">Recent Podcast</strong></h5>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="panel-group" id="recentsPodcast">
+                        <!-- Categorías -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+    <script src="../js/modernizr-2.6.2.min.js"></script>
+    <script src="../js/jquery-1.10.2.min.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/jBox-0.4.9/Source/jBox.js"></script>
+    <script src="../js/jBox-0.4.9/Source/plugins/Image/jBox.Image.js"></script>
+    <script src="../js/jquery.lwtCountdown-1.0.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../hc.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/podcast.js"></script>
+
+    <script src="../js/alertify/alertify.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.jrumble.1.3.js"></script>
+</html>
+<style>
+    span {color: darkmagenta !important }
+    .btn-primary {background-color: purple !important;
+        border-color:darkmagenta !important;
+    }
+    .btn-primary:hover {background-color:violet !important;
+        border-color:plum !important;
+        color:darkmagenta !important
+    }
+    .btn-primary:after {background-color:violet !important;
+        border-color:plum !important;
+        color:darkmagenta !important
+    }
+    .progress-bar {
+        background-color: purple !important;
+    }
+    a{
+        color:darkmagenta !important
+    }
+    body{
+        background-color: #fafafa;
+    }
+</style>

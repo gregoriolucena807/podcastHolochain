@@ -1,0 +1,43 @@
+.icon-span {
+    cursor: pointer;
+    height: 150px;
+    width: 150px;
+    font-size: 20px;
+}
+.icon-span:hover{
+    background-color: lightgray
+}
+
+.modal-icon {
+    display: none;
+    position: absolute;
+    border: 1px solid #CCC;
+    background-color: #FFF;
+    padding: 5px 2px 5px 5px;
+    border-radius: 5px 5px;
+    top:-155px;
+    width: 250px;
+}
+
+.podcast {
+    position:absolute;
+    top: 5px;
+    right: 20px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 3px 3px;
+    color: #FFF;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.card-podcast {
+    border:1px solid #CCC;
+    background-color: #ffffff;
+    box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    -moz-box-shadow: 1px 1px 3px #000;
+}
+body{
+    /* background-attachment: fixed;
+    -webkit-background-size: 100% 100%;-moz-background-size: 100% 100%;-o-background-size: 100% 100%; background-size: 100% 100%; */
+    background-color: #fafafa;
+}
