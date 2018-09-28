@@ -1,0 +1,18 @@
+{
+    "Test" : [
+        {
+            "Convey":"escribir una entrada de holoText",
+            "Zome":"readerWriter",
+            "FnName":"holoTextWrite",
+            "Input":"Hola mundo",
+            "Output":"%h%" 
+        },
+        {
+            "Convey":"leer una entrada de holoText",
+            "Zome":"readerWriter",
+            "FnName":"holoTextRead",
+            "Input":"%h%",
+            "Output":"Hola mundo" 
+        }
+    ]
+} 

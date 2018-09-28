@@ -1,0 +1,89 @@
+{
+    "Version": 1,
+    "UUID": "837aa1f7-99bb-11e8-b37d-d89d67964b34",
+    "Name": "Podcast",
+    "Properties": {
+        "description": "Podcast",
+        "language": "en",
+        "enableDirectoryAccess": "true"
+    },
+    "PropertiesSchemaFile": "properties_schema.json",
+    "RequiresVersion": 26,
+    "DHTConfig": {
+        "HashType": "sha2-256",
+        "RedundancyFactor": 0
+    },
+    "Zomes": [
+        {
+            "Name": "podcast",
+            "Description": "leer y escribir datos",
+            "CodeFile": "podcast.js",
+            "RibosomeType": "js",
+            "BridgeFuncs": null,
+            "Config": null,
+            "Entries": [
+                {
+                    "Name": "podcastText",
+                    "DataFormat": "string",
+                    "Sharing": "public"
+                },
+                {
+                    "Name": "podcastLinks",
+                    "DataFormat": "links"
+                }
+            ],
+            "Functions": [
+                {
+                    "Name": "podcastShare",
+                    "CallingType": "string",
+                    "Exposure" : "public"
+                },
+                {
+                    "Name": "podcastReadHash",
+                    "CallingType": "string",
+                    "Exposure" : "public"
+                },
+                {
+                    "Name": "podcastRead",
+                    "CallingType": "string",
+                    "Exposure" : "public"
+                },
+                {
+                    "Name": "podcastAudio",
+                    "CallingType": "string",
+                    "Exposure" : "public"
+                },
+                {
+                    "Name": "podcastAudioCorto",
+                    "CallingType": "string",
+                    "Exposure" : "public"
+                },
+                {
+                    "Name": "readLengthPodcastAudio",
+                    "CallingType": "string",
+                    "Exposure" : "public"
+                },
+                {
+                    "Name": "readPodcastAudioMain",
+                    "CallingType": "string",
+                    "Exposure" : "public"
+                },
+                {
+                    "Name": "readPodcastAudio",
+                    "CallingType": "string",
+                    "Exposure" : "public"
+                },
+                {
+                    "Name": "createCathegoriesDefault",
+                    "CallingType": "string",
+                    "Exposure" : "public"
+                },
+                {
+                    "Name": "readCathegories",
+                    "CallingType": "string",
+                    "Exposure" : "public"
+                }
+            ]
+        }
+    ]
+}
